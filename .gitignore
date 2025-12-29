@@ -48,3 +48,5 @@ rsconnect/
 *.xlsx
 *.rds
 *.parquet
+*.feather
+*.sqlite

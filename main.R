@@ -4,9 +4,6 @@ library(httr)
 library(stringr)
 library(stringi)
 
-library(readr)
-library(openxlsx)
-library(arrow)
 
 pages = 1:300
 data = data.frame(spc = character(), type = character(), 
@@ -104,10 +101,3 @@ job_posts = data %>%
                  stri_trans_general("NFD") %>%
                  stri_replace_all_regex("\\p{Mn}", "") %>%
                  str_to_lower())
-
-readr::write_csv(job_posts, file = "job-posts.csv")
-openxlsx::write.xlsx(job_posts, "job-posts.xls")
-saveRDS(job_posts, "job-posts.rds")
-write_parquet(job_posts, "job-posts.parquet")
-
-
